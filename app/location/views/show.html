@@ -1,0 +1,36 @@
+<div ng-controller="ShowController">
+  <super-navbar>
+    <super-navbar-title>
+      Show
+    </super-navbar-title>
+  </super-navbar>
+
+  <div class="padding">
+    <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
+    <div ng-hide="showSpinner">
+      <h2 ng-bind="location['client_name']"></h2>
+      
+      
+      
+       <p>lat: <span ng-bind="location['lat']"></span></p> 
+      
+       <p>long: <span ng-bind="location['long']"></span></p> 
+      
+       <p>last_updated: <span ng-bind="location['last_updated']"></span></p> 
+      
+       <p>client_isThien: <span ng-bind="location['client_isThien']"></span></p> 
+      
+
+
+      <super-modal-show location="location#edit?id={{ location.id }}">
+        <button class="button button-block button-positive">
+          Edit
+        </button>
+      </super-modal-show>
+
+      <button ng-click="remove(location.id)" class="button button-block button-negative">
+        Remove
+      </button>
+    </div>
+  </div>
+</div>
